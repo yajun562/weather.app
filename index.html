@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- 修改矢口 -->
+	<meta name="viewport" content="width=device-width">
+	<title>weather</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="shortcut icon" href="img/logo.png" >
+	<!-- 引入rem.js -->
+	<script src="js/rem.js"></script>
+	<script src="font/iconfont.js"></script>
+	<script src="js/jquery3.2.1.min.js"></script>
+	<script src="js/index.js"></script>	
+</head>
+<style type="text/css">
+.icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+</style>
+<body>
+	<!-- 屏幕开始 -->
+	<div class="screen">
+		<div class="header"></div>
+		<div class="box">
+			<h2>空气</h2>
+			<h3>轻度污染</h3>
+		</div>
+		<div class="title">0°</div>
+		<div class="qing">晴</div>
+		<div class="wendu">湿度&nbsp;&nbsp;28%</div>
+		<div class="title4">天冷了，注意保暖~</div>
+	</div>
+
+	<!-- 屏幕结束 -->
+	<!-- 今日明日的天气 -->
+	<div class="con1">
+		<div class="content">
+			<div class="top">
+				<span class="day">今天</span>
+				<div class="temperature">
+					<span class="high" id="dat_high_temperature"></span>
+					/
+					<span class="low" id="dat_low_temperature"></span>
+					℃
+				</div>
+			</div>
+			<div class="bottom">
+				<span class="weather" id="day_condition"></span>
+				<div class="pic" id="dat_weather_icon_id"></div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="top">
+				<span class="day">明天</span>
+				<div class="temperature">
+					<span class="high" id="tomorrow_high_temperature"></span>
+					/
+					<span class="low" id="tomorrow_low_temperature">-13</span>
+					℃
+				</div>
+			</div>
+			<div class="bottom">
+				<span class="weather" id="tomorrow_condition"></span>
+				<div class="pic" id="tomorrow_weather_icon_id"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 实时天气 -->
+	<div class="con2">
+		<div class="wrap" id="now">
+			<!-- <div class="now">
+				<h2 class="now_time">12:00</h2>
+				<div class="now_icon"></div>
+				<h3 class="temperature">-1°</h3>
+			</div> -->
+		</div>
+	</div>
+	<!-- 一周天气 -->
+	<div class="con3">
+		<div class="wrap" id="recent">
+		    <!-- <div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+			<h2 class="wea">多云</h2>
+			<div class="recent_pic"></div>
+			<h3 class="recent_high">2°</h3>
+			<h4 class="recent_low">-13°</h4>
+			<h5 class="recent_wind">西北风</h5>
+			<h6 class="level">2级</h6>  -->
+		</div>
+			<!-- <div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+				<div class="wea">多云</div>
+				<div class="recent_pic"></div>
+				<h3 class="recent_high">2°</h3>
+				<h4 class="recent_low">-13°</h4>
+				<h5 class="recent_wind">西北风</h5>
+				<h6 class="level">2级</h6> 
+			</div>
+			<div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+				<div class="wea">多云</div>
+				<div class="recent_pic"></div>
+				<h3 class="recent_high">2°</h3>
+				<h4 class="recent_low">-13°</h4>
+				<h5 class="recent_wind">西北风</h5>
+				<h6 class="level">2级</h6> 
+			</div>
+			<div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+				<div class="wea">多云</div>
+				<div class="recent_pic"></div>
+				<h3 class="recent_high">2°</h3>
+				<h4 class="recent_low">-13°</h4>
+				<h5 class="recent_wind">西北风</h5>
+				<h6 class="level">2级</h6> 
+			</div>
+			<div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+				<div class="wea">多云</div>
+				<div class="recent_pic"></div>
+				<h3 class="recent_high">2°</h3>
+				<h4 class="recent_low">-13°</h4>
+				<h5 class="recent_wind">西北风</h5>
+				<h6 class="level">2级</h6> 
+			</div>
+			<div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+				<div class="wea">多云</div>
+				<div class="recent_pic"></div>
+				<h3 class="recent_high">2°</h3>
+				<h4 class="recent_low">-13°</h4>
+				<h5 class="recent_wind">西北风</h5>
+				<h6 class="level">2级</h6> 
+			</div>
+			<div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+				<div class="wea">多云</div>
+				<div class="recent_pic"></div>
+				<h3 class="recent_high">2°</h3>
+				<h4 class="recent_low">-13°</h4>
+				<h5 class="recent_wind">西北风</h5>
+				<h6 class="level">2级</h6> 
+			</div>
+			<div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+				<div class="wea">多云</div>
+				<div class="recent_pic"></div>
+				<h3 class="recent_high">2°</h3>
+				<h4 class="recent_low">-13°</h4>
+				<h5 class="recent_wind">西北风</h5>
+				<h6 class="level">2级</h6> 
+			</div>
+			<div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+				<div class="wea">多云</div>
+				<div class="recent_pic"></div>
+				<h3 class="recent_high">2°</h3>
+				<h4 class="recent_low">-13°</h4>
+				<h5 class="recent_wind">西北风</h5>
+				<h6 class="level">2级</h6> 
+			</div>
+			<div class="recent"> 
+				<div class="recent_time">
+				<span class="month">01</span>
+				/
+				<span class="day">15</span>
+				</div>
+				<div class="wea">多云</div>
+				<div class="recent_pic"></div>
+				<h3 class="recent_high">2°</h3>
+				<h4 class="recent_low">-13°</h4>
+				<h5 class="recent_wind">西北风</h5>
+				<h6 class="level">2级</h6> 
+			</div> -->
+	</div>
+
+	<!-- 选择城市 -->
+	<div class="city_box" style="display:none;">
+		<div class="sousuo_box">
+			<div class="search_box">
+				<svg class="icon" aria-hidden="true">
+  				<use xlink:href="#icon-sousuo"></use>
+				</svg>
+				<input type="text" placeholder="搜索市" class="text" id="text">
+			</div>
+			<div class="button">取消</div>
+		</div>
+		<div class="city" id="city">
+			<h1 class="title">热门城市</h1>
+			<div class="con" id="erji">
+				<div class="son">北京</div>
+				<div class="son">上海</div>
+				<div class="son">广州</div>
+				<div class="son">深圳</div>
+				<div class="son">郑州</div>
+				<div class="son">西安</div>
+				<div class="son">南京</div>
+				<div class="son">杭州</div>
+				<div class="son">武汉</div>
+				<div class="son">成都</div>
+				<div class="son">沈阳</div>
+				<div class="son">天津</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<!-- <body>
+<script>
+// 获取元素
+	var box=document.getElementsByClassName(className)
+	("box")[0];
+	// 改变内容
+	box.innerHTML="我是box";
+	var h1=document.getElementsByTagName("h1")[0];
+	h1.innerHTML="h1"; 
+	console.log(box);
+	console.log(h1);
+	// 创建元素，创建一个div
+	var div=document.createElement("div");
+	// 以标签名获取元素
+	var body=document.getElementsByTagName("body")[0];
+	// 添加类名
+	div.className="aa";
+	// 添加内容
+	div.innerHTML="div"
+	// 插入到页面中
+	body.appendChild(div);
+</script> -->

@@ -1,0 +1,56 @@
+/*
+* @Author: Administrator
+* @Date:   2018-01-19 11:20:50
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-01-19 11:56:35
+*/
+body{
+	background: #f2f2f2;
+}
+.box{
+	width: 400px;
+	height: 200px;
+	background: #000;
+	border-bottom: 200px solid #fff;
+	border-radius: 50%;
+	margin: 0 auto;
+	position: relative;
+	/* 动画动的时间和次数 */
+	animation: dong 2s infinite ease;
+}
+.box::before{
+	content: "";
+	display: block;
+	width: 80px;
+	height: 80px;
+	background: #000;
+	border: 60px solid #fff;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 50%;
+}
+.box::after{
+	content: "";
+	display: block;
+	width: 80px;
+	height: 80px;
+	background: #fff;
+	border: 60px solid #000;
+	border-radius: 50%;
+	position: absolute;
+	right: 0;
+	top: 50%;
+}
+.box:hover{
+	transform: rotate(360deg);
+	transition: 3s; 
+}
+@keyframes dong{
+	0%{
+	transform: rotate(0deg);
+	}
+	100%{
+	transform: rotate(360deg);
+	}
+}
